@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Twattle</string>
+    <string name="add_new_subject">Add new subject</string>
+    <string name="enter_the_subject_name">Enter the subject name</string>
+    <string name="enter_the_subject_details">Enter the subject details</string>
+    <string name="enter_the_syllabus_of_your_subject">Enter the syllabus of your subject</string>
+    <string name="enter_the_date_for_starting_your_syllabus">Enter the date for starting your syllabus</string>
+    <string name="enter_the_end_date_for_ending_your_subject">Enter the end date for ending your subject</string>
+    <string name="add">Add</string>
+    <string name="enter_the_date_for_ending_your_syllabus">Enter the date for ending your syllabus</string>
+</resources>
