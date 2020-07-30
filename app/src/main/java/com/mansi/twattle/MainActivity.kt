@@ -9,10 +9,11 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mansi.twattle.model.Student
-import io.realm.DynamicRealm
+import com.mansi.twattle.model.StudentStructure
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import io.realm.kotlin.createObject
+import io.realm.kotlin.where
+import java.nio.file.Files.size
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnAdd: Button
     lateinit var recyclerAdapter: MainRecyclerAdapter
     lateinit var realm: Realm
-    val subList = arrayListOf<String>()
+    val subList = arrayListOf<Student>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             .build()
         Realm.setDefaultConfiguration(realmConfig)
 
-
+        updateData()
 
         recyclerMain = findViewById(R.id.recyclerMain)
         layoutManager = LinearLayoutManager(this)
@@ -55,9 +56,41 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        println("onResume called")
+        subList.clear()
+        updateData()
+        recyclerAdapter.notifyDataSetChanged()
+    }
+
     override fun onPause() {
         super.onPause()
         finish()
+    }
+
+    fun updateData() {
+        println("data recycled")
+        val realm=Realm.getDefaultInstance()
+
+        val students=realm.where<StudentStructure>().findAll()
+        realm.executeTransaction{
+            for(student in students) {
+                val studentObject= Student(
+                    student.SubName,
+                    student.SubDetails,
+                    student.SubSyllabus,
+                    student.StartDate,
+                    student.EndDate
+
+                )
+
+                subList.add(studentObject)
+            }
+
+
+        }
+
     }
 
 

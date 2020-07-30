@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mansi.twattle.model.Student
 
-class MainRecyclerAdapter(val context: Context, val itemList:ArrayList<String>):RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
+class MainRecyclerAdapter(val context: Context, val itemList:ArrayList<Student>):RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder>() {
 
     class MainViewHolder(view: View):RecyclerView.ViewHolder(view){
         val textView:TextView= view.findViewById(R.id.txtSubName)
@@ -26,7 +27,7 @@ class MainRecyclerAdapter(val context: Context, val itemList:ArrayList<String>):
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val text=itemList[position]
-        holder.textView.text=text
+        holder.textView.text=text.SubName
     }
 
 }

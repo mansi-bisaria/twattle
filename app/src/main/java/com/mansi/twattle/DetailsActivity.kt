@@ -1,14 +1,13 @@
 package com.mansi.twattle
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import com.mansi.twattle.R.id
-import com.mansi.twattle.model.Student
+import com.mansi.twattle.model.StudentStructure
 import io.realm.Realm
 import io.realm.kotlin.createObject
 
@@ -26,7 +25,7 @@ class DetailsActivity : AppCompatActivity() {
 
         realm = Realm.getDefaultInstance()
 
-        supportActionBar?.title="Toolbar Title"
+        supportActionBar?.title="Subject Details"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -65,7 +64,7 @@ class DetailsActivity : AppCompatActivity() {
         // All writes must be wrapped in a transaction to facilitate safe multi threading
         realm.executeTransaction { realm ->
             // Add a person
-            val student = realm.createObject<Student>(0)
+            val student = realm.createObject<StudentStructure>(0)
             student.SubName = "English"
             student.SubDetails = "Language"
             student.SubSyllabus = "chapter 14"
