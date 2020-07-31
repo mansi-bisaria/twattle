@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,20 +24,21 @@ class MainActivity : AppCompatActivity() {
     lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var btnAdd: Button
     lateinit var recyclerAdapter: MainRecyclerAdapter
-    lateinit var realm: Realm
+
     val subList = arrayListOf<Student>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        realm = Realm.getDefaultInstance()
+
         Realm.init(this)
-        val realmConfig = RealmConfiguration.Builder()
-            .name("tasky.realm")
-            .schemaVersion(0)
+        val config = RealmConfiguration.Builder()
+            .name("testdb.realm")
+            .schemaVersion(1)
+            .deleteRealmIfMigrationNeeded()
             .build()
-        Realm.setDefaultConfiguration(realmConfig)
+        Realm.setDefaultConfiguration(config)
 
         updateData()
 
@@ -43,8 +46,15 @@ class MainActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         recyclerAdapter = MainRecyclerAdapter(this as Context, subList)
 
+
         recyclerMain.adapter = recyclerAdapter
         recyclerMain.layoutManager = layoutManager
+
+
+
+
+
+
 
         btnAdd = findViewById(R.id.btnAdd)
 
@@ -64,10 +74,7 @@ class MainActivity : AppCompatActivity() {
         recyclerAdapter.notifyDataSetChanged()
     }
 
-    override fun onPause() {
-        super.onPause()
-        finish()
-    }
+
 
     fun updateData() {
         println("data recycled")

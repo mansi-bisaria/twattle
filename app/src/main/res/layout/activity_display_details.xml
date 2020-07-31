@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DisplayDetails">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Name"
+            android:id="@+id/txtSubName"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="6dp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/txtSubDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Details"
+            android:textSize="20sp"
+            android:padding="6dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subject Syllabus"
+                android:id="@+id/txtSubSyllabus"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Date"
+                android:id="@+id/txtStartDate"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="End Date"
+                android:id="@+id/txtEndDate"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"/>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

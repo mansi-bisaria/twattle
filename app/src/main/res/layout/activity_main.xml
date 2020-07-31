@@ -11,6 +11,19 @@
 
 
 
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerMain"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
@@ -24,13 +37,10 @@
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
         android:layout_marginBottom="15dp"/>
+    </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerMain"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+
+
 
 
 
